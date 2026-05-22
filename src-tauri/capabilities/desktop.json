@@ -1,0 +1,27 @@
+{
+  "identifier": "desktop-capability",
+  "platforms": [
+    "macOS",
+    "windows",
+    "linux"
+  ],
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+    "updater:default",
+    "process:default",
+    "dialog:default",
+    "store:default",
+    "fs:default",
+    "fs:allow-home-read",
+    "fs:allow-home-write",
+    "fs:allow-appdata-read",
+    "fs:allow-appdata-write",
+    "fs:allow-mkdir",
+    "fs:allow-read-dir",
+    "fs:allow-read-file",
+    "fs:allow-write-file",
+    "fs:allow-exists"
+  ]
+}

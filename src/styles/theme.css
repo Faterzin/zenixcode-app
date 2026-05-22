@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "GeistSans";
+  src: url("/fonts/Geist-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GeistMono";
+  src: url("/fonts/GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "GeistSans", system-ui, sans-serif;
+  --font-mono: "GeistMono", ui-monospace, monospace;
+}
+
+/* ---------- Default theme: Zenix Dark ---------- */
+:root,
+[data-theme="zenix-dark"] {
+  /* Surfaces (background layers, lowest to highest elevation) */
+  --color-surface-0: #08080b;
+  --color-surface-1: #0f0f14;
+  --color-surface-2: #15151c;
+  --color-surface-3: #1c1c25;
+  --color-surface-hover: #22222d;
+
+  /* Borders / dividers */
+  --color-border: #23232e;
+  --color-border-strong: #2e2e3a;
+
+  /* Text */
+  --color-text: #f4f4f8;
+  --color-text-muted: #a3a3b2;
+  --color-text-subtle: #6c6c7a;
+  --color-text-faint: #4a4a55;
+
+  /* Brand (deep electric blue, same family do site) */
+  --color-brand: #2139b1;
+  --color-brand-hover: #2d47c5;
+  --color-brand-active: #192d94;
+  --color-brand-soft: rgba(45, 71, 197, 0.16);
+  --color-brand-ring: rgba(91, 127, 245, 0.45);
+  --color-brand-foreground: #f4f4f8;
+
+  /* Accents */
+  --color-accent-cyan: #22d3ee;
+  --color-accent-amber: #ffbe1a;
+  --color-accent-emerald: #34d399;
+  --color-accent-rose: #f43f5e;
+
+  /* Semantic feedback */
+  --color-success: #22c55e;
+  --color-warning: #ffbe1a;
+  --color-danger: #f43f5e;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 18px -6px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 24px 48px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* ---------- Optional theme: Zenix Light (slot pronto pra customização futura) ---------- */
+[data-theme="zenix-light"] {
+  --color-surface-0: #fafafa;
+  --color-surface-1: #ffffff;
+  --color-surface-2: #f4f4f6;
+  --color-surface-3: #ececf0;
+  --color-surface-hover: #e2e2e8;
+
+  --color-border: #e4e4ea;
+  --color-border-strong: #c9c9d2;
+
+  --color-text: #111114;
+  --color-text-muted: #525261;
+  --color-text-subtle: #7c7c8a;
+  --color-text-faint: #a3a3b2;
+
+  --color-brand: #2139b1;
+  --color-brand-hover: #192d94;
+  --color-brand-active: #0f1c56;
+  --color-brand-soft: rgba(45, 71, 197, 0.1);
+  --color-brand-ring: rgba(45, 71, 197, 0.35);
+  --color-brand-foreground: #ffffff;
+
+  --color-accent-cyan: #0891b2;
+  --color-accent-amber: #f59e0b;
+  --color-accent-emerald: #059669;
+  --color-accent-rose: #e11d48;
+}
+
+/* ---------- Base layer ---------- */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: var(--color-surface-0);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--color-brand-soft);
+  color: var(--color-text);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-3);
+  border-radius: 999px;
+  border: 2px solid var(--color-surface-0);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-surface-hover);
+}
+
+/* Focus ring */
+button:focus-visible,
+[role="button"]:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-brand-ring);
+  outline-offset: 2px;
+}
+
+/* Subtle utility */
+.glass {
+  background: color-mix(in srgb, var(--color-surface-2) 80%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
+}
